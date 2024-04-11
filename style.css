@@ -1,0 +1,39 @@
+*{
+    background-color: lightgray;
+    font-family: sans-serif;
+}
+
+body{
+    height: 100%;
+	background-color: gray;
+	font-family: sans-serif;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#container{
+    background-color: blueviolet;
+    padding: 3rem;
+	border-radius: 1rem;
+	box-shadow: 2px 2px 3px black;
+    text-align: center;
+}
+
+#container p{
+    color: white;
+    align-content: center;
+    background-color: transparent;
+}
+
+#container button{
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    background-color: goldenrod;
+	box-shadow: 1px 1px 1px black;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3ms;
+}
