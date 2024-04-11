@@ -1,15 +1,14 @@
-const boton = document.getElementById('boton')
-boton.addEventListener("click", PreguntarNombre )
+const form = document.getElementById('form')
+const listado = []
 
-const respuesta = document.getElementById("P")
-const saludos = document.getElementById("pregunta")
+    form.onsubmit = (e) =>{
+        e.preventDefault();
+    const lista = document.getElementById('text').value;
+    text.value = '';
+    lista.innerHTML = 
+    listado.forEach(lista => {
+        '<li>' + i + '</li>'
+     });
+    console.log(lista)
 
-function PreguntarNombre () {
-    const nombre = prompt("Introduce tu nombre");
-    mostrarNombre(nombre);
-}
-
-function mostrarNombre(nombre) {
-    respuesta.textContent = nombre ;
-    saludos.textContent = "Hola "
-}
+    }
