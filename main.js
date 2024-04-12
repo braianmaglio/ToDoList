@@ -1,14 +1,44 @@
 const form = document.getElementById('form')
-const listado = []
+const listado = JSON.parse(localStorage.getItem('lista')) || [];
 
-    form.onsubmit = (e) =>{
+const render = () => {
+    const todolist = document.getElementById('lista');
+
+    const todosTemplate = listado.map(t => '<li>' + t + '</li>');
+    todolist.innerHTML = todosTemplate.join('');
+
+    const elementos = document.querySelectorAll('#lista li');
+    elementos.forEach((elemento, i) => {
+    elemento.addEventListener('click', () => { 
+        elemento.parentNode.removeChild(elemento)
+        listado.splice(i, 1)
+        actualizaListado(listado)
+        render()
+
+    })
+})
+
+}
+
+const actualizaListado = (listado) =>{
+        const listadoPalabras = JSON.stringify(listado)
+        localStorage.setItem('listado', listadoPalabras)
+}
+
+
+window.onload = () => {
+        render ()
+    //tomar datos desde un formulario
+    form.onsubmit = (e) => {
         e.preventDefault();
-    const lista = document.getElementById('text').value;
-    text.value = '';
-    lista.innerHTML = 
-    listado.forEach(lista => {
-        '<li>' + i + '</li>'
-     });
-    console.log(lista)
-
+        const text = document.getElementById('text');
+        const textLabel = text.value;
+        text.value = '';
+        listado.push(textLabel);
+        const listadoPalabras = JSON.stringify(listado)
+        localStorage.setItem('text', listadoPalabras)
+        actualizaListado(text)
+        render ()
     }
+    
+}
